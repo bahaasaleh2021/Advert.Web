@@ -3,12 +3,17 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AdvertApi.Models.22072021" Version="0.0.1" />
     <PackageReference Include="Amazon.AspNetCore.Identity.Cognito" Version="3.0.0" />
     <PackageReference Include="Amazon.Extensions.CognitoAuthentication" Version="2.2.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="AWSSDK.S3" Version="3.7.1.17" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="5.0.1" />
   </ItemGroup>
 
 </Project>

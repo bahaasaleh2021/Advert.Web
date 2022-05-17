@@ -5,10 +5,6 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advert.Web", "Advert.Web.csproj", "{12FF83F0-2005-40A6-A45E-55A5C4177B6A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvertApi", "..\AdvertApi\AdvertApi.csproj", "{4B071F83-9DFC-4B80-88C4-C5606F66B2A3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvertApi.Models", "..\AdvertApi.Models2\AdvertApi.Models.csproj", "{7AC7A2FE-18DA-4623-9F35-67A05E74B501}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{12FF83F0-2005-40A6-A45E-55A5C4177B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12FF83F0-2005-40A6-A45E-55A5C4177B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12FF83F0-2005-40A6-A45E-55A5C4177B6A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4B071F83-9DFC-4B80-88C4-C5606F66B2A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B071F83-9DFC-4B80-88C4-C5606F66B2A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B071F83-9DFC-4B80-88C4-C5606F66B2A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B071F83-9DFC-4B80-88C4-C5606F66B2A3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7AC7A2FE-18DA-4623-9F35-67A05E74B501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7AC7A2FE-18DA-4623-9F35-67A05E74B501}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7AC7A2FE-18DA-4623-9F35-67A05E74B501}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7AC7A2FE-18DA-4623-9F35-67A05E74B501}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

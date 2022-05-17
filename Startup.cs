@@ -1,11 +1,18 @@
+using Advert.Web.HttpClients;
+using Advert.Web.HttpClients.Models;
+using Advert.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Polly;
+using Polly.Extensions.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Advert.Web
@@ -36,7 +43,26 @@ namespace Advert.Web
                 };
             }
             );
+
+            services.AddScoped<IFileUploader, S3FileUploader>();
+            services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
+            services.AddHttpClient<IAdvertApiClient,AdvertApiclient>()
+                .AddPolicyHandler(GetRetryPolicyHandle())
+                .AddPolicyHandler(GetCircuitBreakerPolicyHandler());
+
             services.AddControllersWithViews();
+        }
+
+        private IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicyHandler()
+        {
+            return HttpPolicyExtensions.HandleTransientHttpError().OrResult(msg => msg.StatusCode == HttpStatusCode.NotFound)
+                .CircuitBreakerAsync(3, TimeSpan.FromSeconds(30));
+        }
+
+        private IAsyncPolicy<HttpResponseMessage> GetRetryPolicyHandle()
+        {
+            return HttpPolicyExtensions.HandleTransientHttpError().OrResult(msg => msg.StatusCode == HttpStatusCode.NotFound)
+                .WaitAndRetryAsync(retryCount: 5, sleepDurationProvider: attemptNo => TimeSpan.FromSeconds(Math.Pow(2, attemptNo)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
